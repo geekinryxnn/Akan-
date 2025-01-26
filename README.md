@@ -8,7 +8,7 @@ Features
 
 Calculates the day of the week for a given birthdate.
 
-Displays an Akan name based on the user's birth day and gender.
+Displays an Akan name based on the user's birthday and gender.
 
 Validates user input to ensure the date and gender are correctly provided.
 
@@ -18,14 +18,17 @@ User Input:
 
 The user enters their day and month of birth.
 
-The user selects their gender and then gets his Akan name .
+The user selects their gender and then gets his Akan name.
 
-Authour
-Ryan kiratu 
+Author
+Ryan Kiratu 
 
 Technologies Used
+
 .HTML
+
 .CSS
+
 .JavaScript
 
 
