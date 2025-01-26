@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akan Name Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    </head>
+<body>
+    <h1>Akan Name Calculator</h1>
+    <p>Enter your birthday and gender to discover your Akan name, derived from Ghanaian culture based on the day of the week you were born.</p>
+    <form id="akanForm">
+        <label for="birthday">Enter your birthday:</label>
+        <input type="date" id="birthday" required>
+
+        <label for="gender">Select your gender:</label>
+        <select id="gender" required>
+            <option value="">--Select--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <button type="submit">Find My Akan Name</button>
+    </form>
+
+    <div class="result" id="result"></div>
+
+         <script src="scripts.js"></script>
+    </div>
+  </body>
+</html>
