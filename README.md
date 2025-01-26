@@ -23,5 +23,10 @@ The user selects their gender and then gets his Akan name .
 Authour
 Ryan kiratu 
 
+Technologies Used
+.HTML
+.CSS
+.JavaScript
+
 
 
