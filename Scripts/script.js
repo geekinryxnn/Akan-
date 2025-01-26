@@ -31,16 +31,7 @@ function calculateAkanname() {
       day) %
       7
   );
-
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+  
   const maleNames = [
     "Kwasi",
     "Kwadwo",
