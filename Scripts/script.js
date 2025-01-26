@@ -1,8 +1,11 @@
 function calculateAkanname() {
+    functionpreventdefault();
+    console.log("====event")
   const day = parseInt(document.getElementById("dayofbirth").value);
   const month = parseInt(document.getElementById("monthofbirth").value);
   const gender = document.getElementById("gender").value;
   const output = document.getElementById("output");
+  
 
   // Validate input
   if (
@@ -31,7 +34,7 @@ function calculateAkanname() {
       day) %
       7
   );
-  
+
   const maleNames = [
     "Kwasi",
     "Kwadwo",
@@ -55,4 +58,5 @@ function calculateAkanname() {
   const akanName = gender === "Male" ? maleNames[index] : femaleNames[index];
 
   output.textContent = `You were born on a ${days[index]}. Your Akan name is ${akanName}.`;
+  
 }
