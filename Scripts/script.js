@@ -1,13 +1,20 @@
-function calculateAkanname(event) {
-  event.preventDefault();
-
+function calculateAkanname() {
   const day = parseInt(document.getElementById("dayofbirth").value);
   const month = parseInt(document.getElementById("monthofbirth").value);
   const gender = document.getElementById("gender").value;
   const output = document.getElementById("output");
 
-  if (day <= 0 || day > 31 || month <= 0 || month > 12) {
-    output.textContent = "Invalid date. Please enter a valid day and month.";
+  // Validate input
+  if (
+    !day ||
+    day < 1 ||
+    day > 31 ||
+    !month ||
+    month < 1 ||
+    month > 12 ||
+    !gender
+  ) {
+    output.textContent = "Please provide valid inputs for all fields.";
     return;
   }
 
@@ -25,6 +32,15 @@ function calculateAkanname(event) {
       7
   );
 
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   const maleNames = [
     "Kwasi",
     "Kwadwo",
