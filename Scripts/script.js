@@ -1,7 +1,7 @@
 function calculateAkanname(event) {
-  event.preventDefault(); // Prevent the form from refreshing the page
+  event.preventDefault(); 
 
-  // Get input values
+  
   const dayOfBirth = parseInt(document.getElementById("dayofbirth").value, 10);
   const monthOfBirth = parseInt(
     document.getElementById("monthofbirth").value,
