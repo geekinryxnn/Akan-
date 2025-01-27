@@ -24,15 +24,17 @@ function calculateAkanname(event) {
       "Please provide valid inputs.";
     return;
   }
-
-  
-  const birthDate = new Date(yearOfBirth, monthOfBirth - 1, dayOfBirth);
-  const dayOfWeek = birthDate.getDay();
-
+const century = Math.floor(year/100 + 1);
+const yearOfCentury = year % 100;
+const adjustedMonth = month < 3 ? month + 12 : month;
+const dayOfWeek = 
+(day + Math.floor(2.0 * (adjustedMonth - 2)) - 2 * century + yearOfCentury +
+Math.floor(yearOfCentury / 4) + Math.floor(century / 4)) % 
+7;
   
   const maleAkanNames = [
     "Kwasi",
-    "Kwadwo",
+    "Kwadwo", 
     "Kwabena",
     "Kwaku",
     "Yaw",
