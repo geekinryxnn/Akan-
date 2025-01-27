@@ -1,49 +1,36 @@
 function calculateAkanname(event) {
-  event.preventDefault(); // Prevent the form from reloading the page
+  event.preventDefault(); // Prevent the form from refreshing the page
 
-  const day = parseInt(document.getElementById("dayofbirth").value);
-  const month = parseInt(document.getElementById("monthofbirth").value);
+  // Get input values
+  const dayOfBirth = parseInt(document.getElementById("dayofbirth").value, 10);
+  const monthOfBirth = parseInt(
+    document.getElementById("monthofbirth").value,
+    10
+  );
+  const yearOfBirth = parseInt(
+    document.getElementById("yearofbirth").value,
+    10
+  );
   const gender = document.getElementById("gender").value;
-  const output = document.getElementById("output");
 
-  // Validate input
+  // Validate inputs
   if (
-    !day ||
-    day < 1 ||
-    day > 31 ||
-    !month ||
-    month < 1 ||
-    month > 12 ||
-    !gender
+    isNaN(dayOfBirth) ||
+    isNaN(monthOfBirth) ||
+    isNaN(yearOfBirth) ||
+    gender === "disabled selected"
   ) {
-    output.textContent = "Please provide valid inputs for all fields.";
+    document.getElementById("output").innerText =
+      "Please provide valid inputs.";
     return;
   }
 
-  const today = new Date();
-  const year = today.getFullYear();
-  const century = Math.floor(year / 100);
-  const yearDigits = year % 100;
-  const dayOfWeek = Math.round(
-    (century / 4 -
-      2 * century -
-      1 +
-      (5 * yearDigits) / 4 +
-      (26 * (month + 1)) / 10 +
-      day) %
-      7
-  );
+  // Calculate the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+  const birthDate = new Date(yearOfBirth, monthOfBirth - 1, dayOfBirth);
+  const dayOfWeek = birthDate.getDay();
 
-  const days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const maleNames = [
+  // Akan names
+  const maleAkanNames = [
     "Kwasi",
     "Kwadwo",
     "Kwabena",
@@ -52,7 +39,7 @@ function calculateAkanname(event) {
     "Kofi",
     "Kwame",
   ];
-  const femaleNames = [
+  const femaleAkanNames = [
     "Akosua",
     "Adwoa",
     "Abenaa",
@@ -62,8 +49,14 @@ function calculateAkanname(event) {
     "Ama",
   ];
 
-  const index = (dayOfWeek + 7) % 7; // Ensure positive index
-  const akanName = gender === "Male" ? maleNames[index] : femaleNames[index];
+  let akanName = "";
 
-  output.textContent = `You were born on a ${days[index]}. Your Akan name is ${akanName}.`;
+  if (gender === "Male") {
+    akanName = maleAkanNames[dayOfWeek];
+  } else if (gender === "Female") {
+    akanName = femaleAkanNames[dayOfWeek];
+  }
+
+  // Display the result
+  document.getElementById("output").innerText = `Your Akan name is ${akanName}!`;
 }
