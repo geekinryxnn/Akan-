@@ -1,19 +1,11 @@
 function calculateAkanname(event) {
-  event.preventDefault(); 
+  event.preventDefault();
 
-  
-  const dayOfBirth = parseInt(document.getElementById("dayofbirth").value,);
-  const monthOfBirth = parseInt(
-    document.getElementById("monthofbirth").value,
-    
-  );
-  const yearOfBirth = parseInt(
-    document.getElementById("yearofbirth").value,
-    
-  );
+  const dayOfBirth = parseInt(document.getElementById("dayofbirth").value);
+  const monthOfBirth = parseInt(document.getElementById("monthofbirth").value);
+  const yearOfBirth = parseInt(document.getElementById("yearofbirth").value);
   const gender = document.getElementById("gender").value;
 
-  
   if (
     isNaN(dayOfBirth) ||
     isNaN(monthOfBirth) ||
@@ -24,17 +16,13 @@ function calculateAkanname(event) {
       "Please provide valid inputs.";
     return;
   }
-const century = Math.floor(year/100 + 1);
-const yearOfCentury = year % 100;
-const adjustedMonth = month < 3 ? month + 12 : month;
-const dayOfWeek = 
-(day + Math.floor(2.0 * (adjustedMonth - 2)) - 2 * century + yearOfCentury +
-Math.floor(yearOfCentury / 4) + Math.floor(century / 4)) % 
-7;
-  
+
+
+  const birthDate = new Date(yearOfBirth, monthOfBirth - 1, dayOfBirth);
+  const dayOfWeek = birthDate.getDay();
   const maleAkanNames = [
     "Kwasi",
-    "Kwadwo", 
+    "Kwadwo",
     "Kwabena",
     "Kwaku",
     "Yaw",
@@ -59,6 +47,7 @@ Math.floor(yearOfCentury / 4) + Math.floor(century / 4)) %
     akanName = femaleAkanNames[dayOfWeek];
   }
 
-  
-  document.getElementById("output").innerText = `Your Akan name is ${akanName}!`;
+  document.getElementById(
+    "output"
+  ).innerText = `Your Akan name is ${akanName}!`;
 }
