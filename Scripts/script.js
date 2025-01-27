@@ -2,14 +2,14 @@ function calculateAkanname(event) {
   event.preventDefault(); 
 
   
-  const dayOfBirth = parseInt(document.getElementById("dayofbirth").value, 10);
+  const dayOfBirth = parseInt(document.getElementById("dayofbirth").value,);
   const monthOfBirth = parseInt(
     document.getElementById("monthofbirth").value,
-    10
+    
   );
   const yearOfBirth = parseInt(
     document.getElementById("yearofbirth").value,
-    10
+    
   );
   const gender = document.getElementById("gender").value;
 
