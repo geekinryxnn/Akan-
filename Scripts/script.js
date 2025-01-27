@@ -13,7 +13,7 @@ function calculateAkanname(event) {
   );
   const gender = document.getElementById("gender").value;
 
-  // Validate inputs
+  
   if (
     isNaN(dayOfBirth) ||
     isNaN(monthOfBirth) ||
@@ -25,11 +25,11 @@ function calculateAkanname(event) {
     return;
   }
 
-  // Calculate the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+  
   const birthDate = new Date(yearOfBirth, monthOfBirth - 1, dayOfBirth);
   const dayOfWeek = birthDate.getDay();
 
-  // Akan names
+  
   const maleAkanNames = [
     "Kwasi",
     "Kwadwo",
@@ -57,6 +57,6 @@ function calculateAkanname(event) {
     akanName = femaleAkanNames[dayOfWeek];
   }
 
-  // Display the result
+  
   document.getElementById("output").innerText = `Your Akan name is ${akanName}!`;
 }
