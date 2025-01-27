@@ -17,9 +17,9 @@ function calculateAkanname(event) {
     return;
   }
 
-
   const birthDate = new Date(yearOfBirth, monthOfBirth - 1, dayOfBirth);
   const dayOfWeek = birthDate.getDay();
+
   const maleAkanNames = [
     "Kwasi",
     "Kwadwo",
